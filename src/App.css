@@ -149,4 +149,52 @@
     border-radius: 3px;
   }
 
+  .card {
+    border: 2px solid;
+    border-radius: 10px;
+    max-width: 300px;
+    max-height: 600px;
+    margin: 15px;
+    align-content: center;
   
+  }
+  .posaljiUpit{
+  background-color: #D0B8A8;
+  border: 2px solid #D0B8A8;
+  border-radius: 7px;
+  color: white;
+  font-weight: 500;
+  margin-left: 37%;
+  text-decoration: none;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:3px;
+  padding-bottom: 3px;
+  
+  
+  }
+  .posaljiUpit:hover{
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
+    color: white;
+   background-color: #FFD4B2;
+   border: 2px solid #FFD4B2;
+  }
+  
+  
+  
+  .card-body {
+    padding: 2px;
+  
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    
+  }
+
+  .all-products {
+    display: grid;
+    grid-template-columns: repeat(6,16%);
+    margin: 30px;
+    padding-left: 60px;
+  }
