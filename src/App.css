@@ -97,3 +97,56 @@
     text-align: center;
   
   }
+
+  form{
+    margin-left: 15%;
+  }
+  .form-div{
+    margin-top:7%;
+    margin-left:30%;
+    margin-bottom: 8%;
+    background-color: #ede1d4;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    width: 500px;
+    border-radius: 10px;
+  }
+  .formSentMsg{
+    visibility :"hidden"
+  }
+  #porukaUspešno{
+    width: 600px;
+    height: 40px;
+    box-shadow: 0 8px 16px 0 #bbdabb;
+    background-color: #90EE90;
+    color: black;
+    margin-left: 26%;
+    padding: 10px;
+  
+  }
+  #uspešno{
+    width: 600px;
+    height: 40px;
+    background-color: #90EE90;
+    color: black;
+    margin-left: 26%;
+    margin-bottom: 30px;
+    padding: 10px;
+  }
+  
+  #porukaNeuspešno{
+    width: 600px;
+    height: 40px;
+    background-color: #D0B8A8;
+    color: black;
+    margin-left: 26%;
+    padding: 10px;
+  
+  }
+
+  input{
+    border: 1px solid rgb(165, 164, 164);
+    border-radius: 3px;
+  }
+
+  
