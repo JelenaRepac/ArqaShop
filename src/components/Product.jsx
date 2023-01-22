@@ -25,6 +25,7 @@ function Product({ product, detaljnije, otkaziUpit, strUpit }) {
                 {strUpit === 0 ? (
                     <>
                         {<button className='posaljiUpit' onClick={() => detaljnije(product.id)}><Link to={"/proizvodi/" + product.id} className='link' >Details</Link></button>}
+                    
 
                     </>
                 ) : (

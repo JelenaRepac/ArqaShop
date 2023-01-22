@@ -9,10 +9,12 @@ import Kontakt from './components/Contact';
 import Products from './components/Products';
 import Upit from './components/Query';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SviUpiti from './components/AllQueries';
 
 
 function App() {
   
+  const [cartNum, setCartNum] = useState(0);
   const [proizvodi] = useState([
     {
       id: 1,
@@ -132,8 +134,15 @@ function App() {
   ]);
   
   const [searchProduct, setsearchProduct] = useState(proizvodi[0]);
-  
- 
+  //proizvodiUKorpi
+  const [cartProducts, setCartProducts] = useState([]);
+  //ukupnaCenaProizvoda
+  const [totalPrice, settotalPrice] = useState(0);
+
+  function osveziUpite(){
+    let noviProizvodi=proizvodi.filter((prod)=>prod.kolicina>0);
+    setCartProducts(noviProizvodi);
+  }
   function detaljnije(id) {
     proizvodi.forEach((prod) => {
       if (prod.id === id) {
@@ -143,9 +152,52 @@ function App() {
     });
 
   }
+  function posaljiUpit(id, kolicina) {
+
+    let num = parseInt(kolicina);
+    proizvodi.forEach((prod) => {
+      if (prod.id === id) {
+        if (prod.kolicina === 0) setCartNum(cartNum + 1);
+        prod.kolicina = prod.kolicina + num;
+        let price=totalPrice+prod.cena*num;
+        settotalPrice(price);
+        console.log(totalPrice);
+      }
+
+    }
+    );
+    osveziUpite();
+  }
+  function otkaziUpit(id, kolicina) {
+    setCartNum(cartNum - 1);
+    let num = parseInt(kolicina);
+    proizvodi.forEach((prod) => {
+      if (prod.id === id) {
+        prod.kolicina = prod.kolicina - num;
+        let price=totalPrice-prod.cena*num;
+        settotalPrice(price);
+        console.log(totalPrice);
+      }
+
+    }
+    );
+    osveziUpite();
+  }
+
+  function potvrdiPorudzbinu(){
+    document.getElementById("uspešno").style.visibility="visible";
+    setTimeout(
+      function () {
+      document.getElementById("uspešno").style.visibility="hidden";
+      setCartNum(0);
+      proizvodi.forEach((prod)=> prod.kolicina=0);
+      settotalPrice(0);
+      setCartProducts([]);},3000);
+    }
+  
   return (
   <BrowserRouter>
-      <NavBar></NavBar>
+      <NavBar cartNum={cartNum}></NavBar>
       <Routes>
         <Route
           path="/"
@@ -154,11 +206,15 @@ function App() {
         />
          <Route
           path="/proizvodi/:id"
-          element={<Upit product={searchProduct} products={proizvodi} detaljnije={detaljnije} />}
+          element={<Upit product={searchProduct} products={proizvodi} detaljnije={detaljnije} posaljiUpit={posaljiUpit} />}
         />
          <Route
           path="/proizvodi"
           element={<Products products={proizvodi} detaljnije={detaljnije} />}
+        />
+        <Route
+          path="/upiti"
+          element={ <SviUpiti upiti={cartProducts} otkaziUpit={otkaziUpit} totalPrice={totalPrice} potvrdiPorudzbinu={potvrdiPorudzbinu}/>}
         />
         <Route
         path="/kontakt" element={<Kontakt />}

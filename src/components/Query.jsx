@@ -1,12 +1,10 @@
 
 import React from 'react';
 import Product from './Product';
-import Products from './Products';
 
-function Upit({ product,products,detaljnije}) {
-    const refreshPage = ()=>{
-        window.location.reload();
-     }
+function Upit({ product,products,detaljnije, posaljiUpit}) {
+    
+    
     return (
         <div className='div'>
             <div className='gridDiv'>
@@ -24,6 +22,8 @@ function Upit({ product,products,detaljnije}) {
                         <input type="number" min="0" name="name" id="kol"style={{ width: 100 + "px", marginLeft: 10 + "px" }} />
                     </label><br></br>
                    
+                    <button className='btnUpit' onClick={() => posaljiUpit(product.id, document.getElementById("kol").value)} >Add to cart</button>
+
                     
                 </div>
             </div>

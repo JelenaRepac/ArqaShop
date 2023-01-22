@@ -1,10 +1,9 @@
 import React from 'react'
 import { ImCart } from "react-icons/im";
 import { Link } from "react-router-dom";
-import { IoHeartSharp} from "react-icons/io5"
 
 
-function NavBar()  {
+function NavBar({cartNum})  {
     return (
         
         <div className="navBar">
@@ -14,6 +13,7 @@ function NavBar()  {
             
             <Link to="/upiti" className="cart-items">
                 <ImCart className="iconNav"   style={{ marginLeft: 10 }} />
+                <div className="cart-num">&nbsp;&nbsp; {cartNum}</div>
             </Link>
         </div>
 
