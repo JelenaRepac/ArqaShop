@@ -17,10 +17,10 @@ function Upit({ product,products,detaljnije, posaljiUpit}) {
                     <p className='dp' ><b>Product key: {product.id}</b></p>
                     <p className='dp'>Price: <b>{product.cena} rsd</b></p>
                     <p className='dp'> {product.opis}</p>
-                    <label className='dpl' >Quantity
+                    <label className='dpl' >Quantity 
 
-                        <input type="number" min="0" name="name" id="kol"style={{ width: 100 + "px", marginLeft: 10 + "px" }} />
-                    </label><br></br>
+                        <input type="number" min="0" name="name" id="kol" style={{ width: 100 + "px", marginLeft: 10 + "px" }} />
+                    </label> <br></br>
                    
                     <button className='btnUpit' onClick={() => posaljiUpit(product.id, document.getElementById("kol").value)} >Add to cart</button>
 

@@ -215,3 +215,45 @@
     margin: 30px;
     padding-left: 60px;
   }
+  .ukupno{
+    margin-left: 50px;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .btnUpit{
+   
+    margin-left: 7px;
+    background-color: #D0B8A8;
+    color:white;
+    border: 2px solid #D0B8A8;
+    border-radius: 5px;
+    width: 150px;
+    margin-top: 30px;
+  
+  }
+  .btnUpit:hover{
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
+  }
+  input{
+    border: 1px solid rgb(165, 164, 164);
+    border-radius: 3px;
+  }
+  .potvrdiPorudzbinu{
+    background-color: #CEEDC7;
+    border: 2px solid  #CEEDC7;
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+    margin-bottom: 20px;
+    margin-left: 48px;
+    
+  }
+
+  .emptyCart{
+    color: black;
+    margin-left: 26%;
+    padding: 10px;
+    font-size: 20px;
+    color: rgb(255, 146, 127);
+  }

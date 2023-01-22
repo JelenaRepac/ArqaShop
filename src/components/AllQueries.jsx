@@ -18,7 +18,10 @@ function SviUpiti({ upiti, otkaziUpit, totalPrice, potvrdiPorudzbinu }) {
 
        {upiti.length === 0 ? (
                     <>
-                       <div style={{marginBottom: 35+"%"}}></div>
+                       <div style={{marginBottom: 31+"%"}} className="emptyCart">The cart is empty!
+                       
+                       </div>
+                       
                     </>
                 ) : (
                     <>
