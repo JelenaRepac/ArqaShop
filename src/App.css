@@ -19,10 +19,13 @@
 .portfolioImg{
   width: 350px ;
   height: 420px;
-  margin-left: 50px;
-  
+  margin-left: 30px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  
+  transition: transform .2s;
+}
+
+.portfolioImg:hover{
+  transform: scale(1.2);
 }
 .navBar {
   display: flex;
@@ -80,4 +83,17 @@
   .logo{
     width:100px;
     height:70px;
+  }
+
+  .footer-div{
+    background-color: #ede1d4;
+    padding: 20px;
+    
+  }
+  .info{
+    text-align: center;
+  }
+  .footer{
+    text-align: center;
+  
   }
