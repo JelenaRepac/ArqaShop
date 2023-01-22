@@ -1,16 +1,19 @@
 import logo from './images/arqa.jpg';
 import './App.css';
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from './components/Main';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Kontakt from './components/Contact';
 import Products from './components/Products';
+import Upit from './components/Query';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
-  const [proizvodi] = [
+  
+  const [proizvodi] = useState([
     {
       id: 1,
       naziv: "LINA GOLD RING",
@@ -126,9 +129,20 @@ function App() {
 
     
     
-  ];
+  ]);
   
+  const [searchProduct, setsearchProduct] = useState(proizvodi[0]);
   
+ 
+  function detaljnije(id) {
+    proizvodi.forEach((prod) => {
+      if (prod.id === id) {
+        setsearchProduct(prod);
+      }
+
+    });
+
+  }
   return (
   <BrowserRouter>
       <NavBar></NavBar>
@@ -139,8 +153,12 @@ function App() {
           
         />
          <Route
+          path="/proizvodi/:id"
+          element={<Upit product={searchProduct} products={proizvodi} detaljnije={detaljnije} />}
+        />
+         <Route
           path="/proizvodi"
-          element={<Products products={proizvodi} />}
+          element={<Products products={proizvodi} detaljnije={detaljnije} />}
         />
         <Route
         path="/kontakt" element={<Kontakt />}
