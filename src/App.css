@@ -144,9 +144,10 @@
   #uspešno{
     width: 600px;
     height: 40px;
+    box-shadow: 0 8px 16px 0 #bbdabb;
     background-color: #90EE90;
     color: black;
-    margin-left: 26%;
+    margin-left: 5%;
     margin-bottom: 30px;
     padding: 10px;
   }
