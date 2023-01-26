@@ -1,14 +1,43 @@
 import React from 'react'
 import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
 
 function Kontakt() {
     const form = useRef();
 
+    function showDiv(elementId){
+        document.getElementById(elementId).style.visibility="visible";
+        setTimeout(function () {
+            document.getElementById(elementId).style.visibility="hidden"},4000);
+        
+    }
+    function resetForm(){
+        document.getElementById('myform').reset();
+    }
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        emailjs.sendForm('service_70t6q1o', 'template_swdd1ze', form.current, 'yia8Lv_CmE6HcGJbl')
+        .then((result) => {
+            showDiv("porukaUspešno");
+            resetForm();
+
+        },
+            (error) => {
+                showDiv("porukaNeuspešno");
+                resetForm();
+
+            });
+
+    }
     return (<>
         <div className='form-div'>
 
             <form ref={form} id="myform"
-             
+                    onSubmit={handleSubmit}
+                    method="POST"
+                    target="_blank"
             >
                 <div className="mb-3 pt-0">
                     <input
@@ -44,9 +73,16 @@ function Kontakt() {
                         Send message
                     </button>
                 </div>
-            </form>
-
-        </div>
+            </form> 
+          
+        </div>  
+        <div id="porukaUspešno" style={{visibility:"hidden"}}>
+            You have successfully contacted us. We will respond as soon as possible.
+            </div>
+        <div id="porukaNeuspešno" style={{visibility: "hidden"}}>
+        An error has occurred. Please try again later.
+            </div>
+        
        
     </>
 
