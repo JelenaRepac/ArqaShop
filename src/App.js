@@ -139,6 +139,8 @@ function App() {
 
   const [totalPrice, settotalPrice] = useState(0);
 
+  const [quantity, setQuantity]= useState(0);
+
   function osveziUpite(){
     let noviProizvodi=proizvodi.filter((prod)=>prod.kolicina>0);
     setCartProducts(noviProizvodi);
@@ -155,19 +157,26 @@ function App() {
   function posaljiUpit(id, kolicina) {
 
     let num = parseInt(kolicina);
-    proizvodi.forEach((prod) => {
-      if (prod.id === id) {
-        if (prod.kolicina === 0) setCartNum(cartNum + 1);
-        prod.kolicina = prod.kolicina + num;
-        let price=totalPrice+prod.cena*num;
-        settotalPrice(price);
-        
-      }
+    setQuantity(num);
+    if(num===0){
 
     }
-    );
-    osveziUpite();
+    else{
+      proizvodi.forEach((prod) => {
+        if (prod.id === id) {
+          if (prod.kolicina === 0) setCartNum(cartNum + 1);
+          prod.kolicina = prod.kolicina + num;
+          let price=totalPrice+prod.cena*num;
+          settotalPrice(price);
+
+        }
+
+      }
+      );
+      osveziUpite();
+    }
   }
+  
   function otkaziUpit(id, kolicina) {
     setCartNum(cartNum - 1);
     let num = parseInt(kolicina);
@@ -206,7 +215,7 @@ function App() {
         />
          <Route
           path="/proizvodi/:id"
-          element={<Upit product={searchProduct} products={proizvodi} detaljnije={detaljnije} posaljiUpit={posaljiUpit} />}
+          element={<Upit product={searchProduct} products={proizvodi} detaljnije={detaljnije} posaljiUpit={posaljiUpit}  quantity={quantity}/>}
         />
          <Route
           path="/proizvodi"

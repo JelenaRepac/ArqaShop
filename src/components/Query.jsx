@@ -2,7 +2,7 @@
 import React from 'react';
 import Product from './Product';
 
-function Upit({ product,products,detaljnije, posaljiUpit}) {
+function Upit({ product,products,detaljnije, posaljiUpit, quantity}) {
     
     
     return (
@@ -21,6 +21,16 @@ function Upit({ product,products,detaljnije, posaljiUpit}) {
 
                         <input type="number" min="0" name="name" id="kol" style={{ width: 100 + "px", marginLeft: 10 + "px" }} />
                     </label> <br></br>
+                  
+                    {quantity===0 ? (
+                        <>
+                        <p></p>
+                        <p className='dp'> Quantity can't be zero!</p>
+                        </>
+                    ) : (
+                        <>
+                        </>
+                    )}
                   
                     <button className='btnUpit' onClick={() => posaljiUpit(product.id, document.getElementById("kol").value)} >Add to cart</button>
                     
