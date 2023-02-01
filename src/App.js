@@ -23,7 +23,7 @@ function App() {
       slika: "https://cdn.shopify.com/s/files/1/2592/6488/products/anillo-lina-oro.jpg?v=1671448846&width=713",
       opis:  "The LINA GOLD ring is a very attractive and striking ring. Its central opal stone is always the focus of all attention.The design of the LINA GOLD is made up of a fine ring and a half-moon on one side and a round Opal stone on the other side. It is not one of our adjustable rings, but it is a bit flexible - just be careful not to lose the space between the crescent and the stone, that space makes the ring prettier.The LINA GOLD ring matches any other kind of ring or accessory, it is a very versatile jewel.",
       cena:4400,
-      kolicina: 1,
+      kolicina: 0,
 
     },
     {
@@ -134,9 +134,9 @@ function App() {
   ]);
   
   const [searchProduct, setsearchProduct] = useState(proizvodi[0]);
-  //proizvodiUKorpi
+  
   const [cartProducts, setCartProducts] = useState([]);
-  //ukupnaCenaProizvoda
+
   const [totalPrice, settotalPrice] = useState(0);
 
   function osveziUpite(){
@@ -161,7 +161,7 @@ function App() {
         prod.kolicina = prod.kolicina + num;
         let price=totalPrice+prod.cena*num;
         settotalPrice(price);
-        console.log(totalPrice);
+        
       }
 
     }
