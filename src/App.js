@@ -24,6 +24,7 @@ function App() {
       opis:  "The LINA GOLD ring is a very attractive and striking ring. Its central opal stone is always the focus of all attention.The design of the LINA GOLD is made up of a fine ring and a half-moon on one side and a round Opal stone on the other side. It is not one of our adjustable rings, but it is a bit flexible - just be careful not to lose the space between the crescent and the stone, that space makes the ring prettier.The LINA GOLD ring matches any other kind of ring or accessory, it is a very versatile jewel.",
       cena:4400,
       kolicina: 0,
+      greska: "Quantity can't be zero!"
 
     },
     {
@@ -139,12 +140,11 @@ function App() {
 
   const [totalPrice, settotalPrice] = useState(0);
 
-  const [quantity, setQuantity]= useState(0);
-
   function osveziUpite(){
     let noviProizvodi=proizvodi.filter((prod)=>prod.kolicina>0);
     setCartProducts(noviProizvodi);
   }
+
   function detaljnije(id) {
     proizvodi.forEach((prod) => {
       if (prod.id === id) {
@@ -157,9 +157,8 @@ function App() {
   function posaljiUpit(id, kolicina) {
 
     let num = parseInt(kolicina);
-    setQuantity(num);
     if(num===0){
-
+      
     }
     else{
       proizvodi.forEach((prod) => {
@@ -215,7 +214,7 @@ function App() {
         />
          <Route
           path="/proizvodi/:id"
-          element={<Upit product={searchProduct} products={proizvodi} detaljnije={detaljnije} posaljiUpit={posaljiUpit}  quantity={quantity}/>}
+          element={<Upit product={searchProduct} products={proizvodi} detaljnije={detaljnije} posaljiUpit={posaljiUpit} />}
         />
          <Route
           path="/proizvodi"
