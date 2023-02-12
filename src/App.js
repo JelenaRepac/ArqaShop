@@ -129,9 +129,6 @@ function App() {
       cena:6000,
       kolicina: 0
     },
-
-    
-    
   ]);
   
   const [searchProduct, setsearchProduct] = useState(proizvodi[0]);
